@@ -496,3 +496,101 @@ In JS , an iterator is an object that implements the `Symbol.iterator` method, w
 ### Generator :-
 A generator is a special type of function that can be paused and resumed during its execution. It is used to create iterators. A generator function returns an iterator object, which can be used to iterate over the values produced by the generator. 
 
+```JS
+function* myGenerator(){
+  console.log("Inside generator")
+  yield 1;
+  console.log("Line 2")
+  yield 2;
+  console.log("Line 3")
+  yield 3;
+}
+console.log("Outside");
+const gen = myGenerator();
+console.log(gen.next().value); // 1
+console.log(gen.next().value); // 2
+console.log(gen.next().value); // 3
+```
+Output :
+Inside generator
+Outside
+1
+Line 2
+2
+Line 3
+3
+
+In the above code, `myGenerator` is a generator function. It uses the `yield` keyword to produce values. The `next()` method is used to get the next value from the generator. The `done` property of the iterator object returned by `next()` is used to check whether the generator is done. If `done` is `true`, it means the generator is done and there are no more values to iterate over.
+
+### Generator vs Iterator :-
+- Both generators and iterators are used to create sequences of values.
+- Both can be used to iterate over collections.
+- Both can be used to create custom iteration protocols.
+- However, generators are a special type of function that can be paused and resumed during its execution,
+whereas iterators are objects that implement the `Symbol.iterator` method.
+
+Ref : <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators">Iterators & Generators</a>
+
+## Async Await :-
+```JS
+function download(url){
+  return new Promise(function exec(res, rej){
+    console.log("Downloading from", url);
+    setTimeout( function() {
+      let data = "Some data from " + url;
+      console.log("Downloaded dat from", url);
+      res(data);
+  }, 3000);
+  });
+}
+
+function writeFile(data, fileName, callback){
+  return new Promise(function exec(res, rej){
+    console.log("Writing to file", fileName);
+    setTimeout(() => {
+      console.log("Wrote to file", fileName);
+      let status = "Success";
+      res(status);
+    }, 2000);
+  });
+}
+
+function upload(fileName, url, callback){
+  return new Promise(function exec(res, rej){
+    console.log("Uploading to", url);
+    setTimeout(() => {
+      console.log("Uploaded to", url);
+      let uploadStatus = "Success";
+      res(status);
+    }, 2000);
+  });
+}
+
+function* exec(){
+  console.log("starting Execution");
+
+  const downloadData = yield download("https://example.com/file1.txt");
+  console.log("Downloaded Data:", downloadData);
+
+  const fileResponse = yield writeFile(downloadData, "file1.txt");
+  console.log("File Response:", fileResponse);
+
+  const uploadStatus = yield upload("file1.txt", "https://example.com/upload");
+  console.log("Upload Status:", uploadStatus);
+
+  return uploadStatus;
+  
+}
+
+const it = exec();
+
+const ft = it.next();
+console.log("ft is", ft);
+ft.value.then(function afterReceivng(value){
+  console.log("Received value:", value);
+
+  it.next(value);
+});
+
+```
+
