@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        .grandparent {
+            height: 600px;
+            width: 600px;
+            background-color: lightcoral;
+            padding: 10px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .parent{
+            height: 400px;
+            width: 400px;
+            background-color: lightblue;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .child{
+            height: 200px;
+            width: 200px;
+            background-color: lightgreen;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="grandparent">
+        grandparent
+        <div class="parent">
+            parent
+            <div class="child">
+                child
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const grandparent = document.querySelector('.grandparent');
+        const parent = document.querySelector('.parent');
+        const child = document.querySelector('.child');
+        grandparent.addEventListener('click', () => {
+            alert('grandparent clicked');
+        });
+        parent.addEventListener('click', () => {
+            alert('parent clicked');
+        });
+        child.addEventListener('click', () => {
+            alert('child clicked');
+        });
+
+    </script>
+</body>
+</html>
