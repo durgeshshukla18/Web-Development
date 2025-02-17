@@ -593,4 +593,116 @@ ft.value.then(function afterReceivng(value){
 });
 
 ```
+This code defines three functions: `download`, `writeFile`, and `upload`. These functions are designed to mimic the behavior of asynchronous operations, such as downloading a file, writing to a file, and uploading a file. The `exec` function is a generator function that orchestrates the execution of
+these operations using the `yield` keyword. The `it.next()` method is used to advance the generator and execute the next operation. The `then` method is used to handle the result of the operation and pass it to the next operation. The code uses Promises to handle the asynchronous operations and the `yield` keyword to pause the execution of the generator until the operation is complete.
+The code is written in JavaScript and uses the `async/await` syntax to handle asynchronous operations. The `exec` function is a generator function that uses the `yield` keyword to pause the execution
+of the generator until the operation is complete. The `then` method is used to handle the result of the operation and pass it to the next operation. The code uses Promises to handle the asynchronous operations and the `yield` keyword to pause the execution of the generator until the operation is complete.
+
+### What is async await ?
+Async/await is a syntax in JavaScript that allows you to write asynchronous code that looks and feels like synchronous code. It's a way to write asynchronous code that's easier to read and understand.
+
+### Async function :-
+- We will be allowed to use await keyword inside the function. 
+- The function will return a promise.
+- If we have an async function  returning a non promise value(like object, Stringn null etc.), then async function will create a ner Promise in the memory and then immediately fulfill the Promise using the returned value. Hence we get an already fulfilled promise.
+- If we have an async function returning a promise, then the async function will return the promise as it is.
+- If we have an async function returning a promise that is rejected, then the async function will return the rejected promise. Hence we get an already rejected promise. 
+- Whenever we hit await keyword, the execution of the function will be paused until the awaited promise is resolved or rejected.
+- If the awaited promise is resolved, then the execution of the function will resume from the line after the await keyword.
+- If the awaited promise is rejected, then the execution of the function will pause and the catch block will be executed. 
+- Async function internally uses generator iterator concept but they do not need to be manually controlled by us . They are automatically controlled by the async/await syntax and its execution starts immediately.
+- We can use try catch block inside an async function to catch the errors that occur during the execution of the function. The catch block will be executed when the awaited promise is rejected. 
+
+
+```JS
+async function exec(){
+  console.log("starting Execution");
+  const downloadData = await download("https://example.com/file1.txt");
+  console.log("Downloaded Data:", downloadData);
+
+  const fileResponse = await writeFile(downloadData, "file1.txt");
+  console.log("File Response:", fileResponse);
+
+  const uploadStatus = await upload("file1.txt", "https://example.com/upload");
+  console.log("Upload Status:", uploadStatus);
+
+  return uploadStatus;
+}
+
+exec().then((v) => console.log("exec done", v));
+```
+In the above code, the `exec` function is an async function that uses the `await` keyword to pause the execution of the function until the awaited promise is resolved or rejected. The `download`, `writeFile`, and `upload` functions are called using the `await` keyword, and their results are logged to
+the console. The `exec` function returns a promise that resolves with the result of the `upload ` function. The `then` method is used to handle the result of the `exec` function and log it to the console. The code uses Promises to handle the asynchronous operations and the `await` keyword to pause the execution of the function until the operation is complete. 
+
+### Promise vs callback function:-
+|Promise|Callback|
+| --- | --- |
+|Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.|Callback is a function that is passed as an argument to another function, which is the invoked when a specific task is completed. | 
+|Promise is used to handle asynchronous operations in a more readable and maintainable way.|Callback is used to handle asynchronous operations in a more traditional way. | 
+|Promise is a more modern and widely adopted approach to handling asynchronous operations.|Callback is a more traditional and widely used approach to handling asynchronous operations. | 
+|Promise is more flexible and can be used with multiple asynchronous operations.|Callback is less flexible and is typically used with a single asynchronous operation. | 
+|Promise can be resolved or rejected with a value only once.|Callback can be invoked multiple times. |
+
+Ref: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises</a>
+
+
+# DOM :-
+The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the structure of a document as a tree-like data structure. The DOM is used to interact with the document , such as getting and setting the values of elements, adding and removing elements, and handling events.
+
+### DOM Tree:
+The DOM tree is a hierarchical representation of the document. It consists of nodes, which are objects that represent elements, attributes, and text. The nodes are connected by edges, which represent the relationships between them.
+
+### Tokenization- 
+Tokenization is the process of breaking down a string into individual tokens, which are the smallest units of the string that have meaning in the context of the language. In the context of the DOM, token ization is used to break down the HTML or XML document into individual elements, which are represented as nodes in the DOM tree. 
+
+### CSSOM-
+The CSS Object Model (CSSOM) is a programming interface for CSS stylesheets. It represents the styles applied to the document as a tree-like data structure. The CSSOM is used to interact with the styles, such as getting and setting the values of styles, adding and removing styles, and handling events. 
+
+### DOM vs CSSOM-
+|DOM|CSSOM|
+| --- | --- |
+|DOM represents the structure of the document as a tree-like data structure.|CSSOM represents the styles applied to the document as a tree-like data structure. |
+|DOM is used to interact with the document, such as getting and setting the values of elements, adding and removing elements, and handling events.|CSSOM is used to interact with the styles, such as getting and setting the values of styles, adding and removing styles, and handling events. | 
+|DOM is a more fundamental and low-level interface than CSSOM.|CSSOM is a higher-level interface that builds on top of the DOM. | 
+|DOM is used to manipulate the structure of the document.|CSSOM is used to manipulate the styles applied to the document. | 
+
+![alt text](images/DOM&CSSOM.png)
+
+### Render tree-
+The render tree is a tree-like data structure that represents the visual representation of the document. It is created by combining the DOM tree and the CSSOM tree. The render tree is used by the browser to determine how to render the document.
+
+### Layout-
+Layout is the process of calculating the position and size of elements in the render tree. It is used to determine how the elements will be displayed on the screen. 
+
+### Paint-
+Paint is the process of drawing the elements in the render tree onto the screen. It is used to render the visual representation of the document. 
+
+### BOM-
+The Browser Object Model (BOM) is a programming interface for the browser. It represents the browser as an object, which can be used to interact with the browser, such as getting and setting the values of properties, adding and removing properties, and handling events. 
+
+### BOM vs DOM-
+|BOM|DOM|
+| --- | --- |
+|BOM represents the browser as an object.|DOM represents the document as an object. |
+|BOM is used to interact with the browser, such as getting and setting the values of properties , adding and removing properties, and handling events.|DOM is used to interact with the document, such as getting and setting the values of elements, adding and removing elements, and handling events. |
+|BOM is a higher-level interface than DOM.|DOM is a more fundamental and low-level interface than BOM. |
+|BOM is used to manipulate the browser.|DOM is used to manipulate the document. |
+
+#### Window Object-
+The Window object is the top-level object in the BOM. It represents the browser window and provides access to the document, history, and other browser features. 
+
+
+## DOM Manipulation:-
+
+### Event driven programming-
+Event-driven programming is a programming paradigm in which the flow of the program is determined by events such as user interactions, network requests, and timer events. In the context of the DOM, event-driven programming is used to handle events such as clicks, mouseovers, and key presses. 
+
+![alt text](images/EventDriven.png)
+![alt text](images/EventDriven2.png)
+
+### DOM Content Loaded-
+The DOMContentLoaded event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. This event is used to execute code when the document is fully loaded.
+
+### document Object-
+The document object is the top-level object in the DOM. It represents the document and provides access to the document's elements, attributes, and methods. The document object is used to interact with the document , such as getting and setting the values of elements, adding and removing elements, and handling events. 
 
