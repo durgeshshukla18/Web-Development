@@ -102,3 +102,33 @@ document.querySelectorAll('h1') //returns a NodeList of all h1 elements i.e; Nod
 
 ### document.getElementByClass :-
 This method returns the first element that matches the specified class name. It returns the first element that matches the specified class name, or null if no element matches. If the specified class name matches more than one element, it returns the first one in the document order. If the specified class name matches no elements, it returns null. 
+
+### document.getElementsByClassName :-
+This method returns a HTMLCollection of elements that match the specified class name. It returns a HTMLCollection of elements that match the specified class name, or an empty HTMLCollection if no elements match. If the specified class name matches more than one element, it returns a HTMLCollection containing all of them in the document order. If the specified class name matches no elements, it returns an empty HTMLCollection. 
+
+## How to create a new element in DOM ?
+You can create a new element in DOM by using the `document.createElement()` method. This method creates a new element with the specified tag name and returns it. You can then append this element to the DOM using the `appendChild()` method. 
+
+```HTML
+<!DOCTYPE html>
+<html>  
+  <head>
+    <title>Page Title</title>
+    </head>
+    
+```
+- `.firstElementChild`:- This property returns the first element child of the specified element. If the element has no child elements, it returns null. If the element has child elements, it returns the first one in the document order .
+- `.lastElementChild`:- This property returns the last element child of the specified element. If the element has no child elements, it returns null. If the element has child elements, it returns the last one in the document order . 
+
+- `parent.childNodes`:- This property returns a NodeList of all child nodes of the specified element. This includes text nodes, element nodes, and comment nodes. If the element has no child nodes, it returns an empty NodeList. 
+- `parent.children`:- This property returns a NodeList of all child elements of the specified element. If the element has no child elements, it returns an empty NodeList. 
+- `parent.firstChild`:- This property returns the first child node of the specified element. If the element has no child nodes, it returns null. If the element has child nodes, it returns the first one in the document order.
+- `parent.lastChild`:- This property returns the last child node of the specified element. If the element has no child nodes, it returns null. If the element has child nodes, it returns the last one in the document order.
+- `parent.previousSibling`:- This property returns the previous sibling node of the specified element. If the element is the first child of its parent, it returns null. If the element has a previous sibling, it returns the previous sibling node.
+- `parent.nextSibling`:- This property returns the next sibling node of the specified element. If the element is the last child of its parent, it returns null. If the element has a next sibling , it returns the next sibling node.
+- `parent.parentNode`:- This property returns the parent node of the specified element. If the element is the root node of the document, it returns null. If the element has a parent node, it returns the parent node. 
+- `parent.parentElement`:- This property returns the parent element of the specified element. If the element is the root node of the document, it returns null. If the element has a parent element, it returns the parent element. 
+
+```HTML
+
+```
