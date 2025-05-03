@@ -117,3 +117,69 @@ The `package.json` file is a JSON file that contains metadata about the project,
 ### Moduling :-
 Moduling is a way to organize code in a project by breaking it down into smaller, independent modules . Each module can have its own dependencies and exports, making it easier to manage and reuse code. 
 
+## What are Components :-
+Components are reusable pieces of code that represent a UI element or a piece of functionality. They can be thought of as building blocks that can be combined to create a larger application. 
+
+### Rules:-
+1. Components name should start with a capital letter
+2. Components should be written in a separate file
+3. Components should be imported in the main file
+4. Components should be used in the main file   
+5. Components should be reusable
+6. Components should be self contained
+7. Components should be easy to understand and maintain
+
+## exporting and importing components:-
+- Exporting a component:-
+```jsx
+import React from 'react';
+function MyComponent() {
+    return <div>Hello World!</div>;
+    }
+
+export default MyComponent;
+```
+
+- Importing a component:-
+```jsx
+import MyComponent from './MyComponent.js';
+
+```
+
+
+### default export vs named export:-
+- default export is used to export a single value from a module 
+- named export is used to export multiple values from a module
+
+## JSX -
+JSX is a syntax extension for JavaScript that allows you to write HTML-like code in your JavaScript files . It's used to create React components and is a key part of the React ecosystem. 
+
+### JSX syntax:-
+- JSX is written inside a JavaScript file
+- JSX uses HTML-like syntax
+- JSX uses JavaScript expressions inside curly braces { }
+- JSX uses JSX elements to represent UI components
+- JSX elements are self closing or have a closing tag
+- JSX elements can have attributes and children
+- JSX elements can be nested
+- JSX elements can be conditionally rendered
+
+### props :-
+Props are short for "properties" and are a way to pass data from a parent component to a child component. They are read-only and can be used to customize the behavior of a component. 
+
+### react-fragment :-
+React Fragment is a new way to group a list of children without adding extra nodes to the DOM. It's a way to return multiple elements from a component without wrapping them in a single element. 
+```jsx
+function MyComponent() {
+  return (
+    <React.Fragment> // or <>
+    <h1>Hello</h1>
+    <p>World!</p>
+    </React.Fragment> // or </>
+  );
+}
+```
+
+## React Router :-
+React Router is a popular library for client-side routing in React applications. It allows you to create client -side routes and navigate between them. 
+
