@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        function changeEffects(){
+        liElements = document.getElementsByTagName("li");
+        [...liElements].forEach( (value) => {
+            value.style.cssText = "color: blue; font-size: 30px; background-color: yellow;"
+        });
+    }
+    </script>
+</head>
+<body>
+    <h2>Shopping List</h2>
+    <ul id="shopping-list">
+        <li class="item">Apple</li>
+        <li class="item">Samsung</li>
+        <li class="item">OnePlus</li>
+    </ul>
+    <button onclick="changeEffects()">Change Effects</button>
+</body>
+</html>

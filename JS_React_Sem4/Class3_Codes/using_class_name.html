@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main" class="box">
+        <p class="box">Hello</p>
+        <p class="box">World</p>
+    </div>
+    
+</body>
+</html>
+
+<script type="text/javascript">
+    elements = document.getElementsByClassName("box")
+    console.log(typeof elements) // object;
+
+for(i = 0; i < elements.length; i++){
+    // console.log(elements[i]);
+    elements[i].style.color = "red";
+}
+
+console.log(Array.from(elements));
+
+// using iterators
+
+Array.from(elements).forEach( (value, index, arr) => {
+    console.log(value);
+    console.log(index);
+    console.log(arr);
+});
+
+Array.from(elements).forEach( (value) => {
+    value.style.cssText = "color: blue; font-size: 30px; background-color: yellow;"
+});
+
+
+
+</script>

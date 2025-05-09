@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>This is a <span style="display: none;">Hidden</span>Word.</h1>
+        <p>Another Line</p>
+    </div>
+    <button onclick="display()">Delete</button>
+    
+
+    <script type="text/javascript">
+        function display(){
+            element = document.querySelector("h1").textContent; // This will get the text content of the h1 element, including hidden text 
+            // element = document.querySelector("h1").innerText; // This will get the visible text content of the h1 element, excluding hidden text
+
+            console.log(element); // This will log the text content of the h1 element to the console
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .modal-dialog {
+            max-width: 100%;
+            width: 50%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 100%;
+            background-color: whitesmoke;
+            border: none;
+            border-radius: 0;
+        }
+</style>
+
+<script >
+    function registerProduct() {
+        name = document.getElementById("name").value;
+        price = document.getElementById("price").value;
+        city = document.getElementById("lstDate").value;
+        stock = document.getElementById("flexSwitchCheckDefault").checked ? "In Stock" : "Out of Stock";
+
+        // Display the summary section
+        document.getElementById("summaryDetails").style.display = "block";
+
+        // Display the summary details
+        document.getElementById("lblName").innerHTML = "Product Name: " + name;
+        document.getElementById("lblPrice").innerHTML = "Product Price: " + price;
+        document.getElementById("lblCity").innerHTML = "City: " + city;
+        document.getElementById("lblStock").innerHTML = "Stock Status: " + stock;
+
+        
+
+        // Hide the modal
+        $('#productModal').modal('hide');
+    }
+
+    // Edit
+    function editProduct() {
+
+
+            document.getElementById("bookingModalLabel").innerHTML = '<h5 class="modal-title" style="color: black;">Edit Product</h5>';
+
+            document.getElementById("registerBtn").textContent = "Update";
+            btnClass = document.getElementById("registerBtn");
+
+            btnClass.className = "btn btn-success";
+
+            
+        }
+
+</script>
+
+</head>
+<body>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productModal" style="padding: 10px; margin: 16px;">
+        Add Product
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="produtModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookingModalLabel" style="color: black;">Add Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <form id="lstMovies" class="form-control mr-2">
+
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter product name" required>
+
+                            <label for="price">Price</label>
+                            <input type="number" id="price" class="form-control" placeholder="Enter product price" required>
+
+                            <label for="city">City</label>
+                            <select id="lstDate" class="form-control mr-2">
+                                <option selected><h2>Select City</h2></option>
+                                <option>Bengaluru</option>
+                                <option>Noida</option>
+                                <option>Mumbai</option>
+                            </select>
+
+
+                            <div class="form-group">
+                                <label for="productAvailability">Stock</label>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">In Stock</label>
+                                </div>
+                            </div>
+                        </form>
+
+                       
+                        
+                        <button onclick="registerProduct()" class="btn btn-info" id="registerBtn">Register</button>
+                        <button class="btn btn-danger">Cancel</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!--Summary Section-->
+    <div id="summaryDetails" style="display: none; padding: 20px; background-color: #f8f9fa; border-radius: 5px; margin-top: 20px;">
+        <h2>Product Summary</h2>
+        <dl>
+            <dt id="lblName"></dt>
+            <dd></dd>
+            <dt id="lblPrice"></dt>
+            <dd></dd>
+            <dt id="lblCity"></dt>
+            <dd></dd>
+            <dt id="lblStock"></dt>
+            <dd></dd>
+        </dl>
+
+        <button onclick="editProduct()" class="btn btn-secondary" data-bs-toggle = "modal" data-bs-target = "#productModal">Edit</button>
+    
+    </div>
+
+
+</body>
+</html>

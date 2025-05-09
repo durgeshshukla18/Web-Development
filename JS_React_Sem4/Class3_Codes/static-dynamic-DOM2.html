@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function addItem(){
+            itemLengthUsingClassName = document.getElementsByClassName("item").length; // returns the number of elements with class name item
+            console.log(itemLengthUsingClassName); // returns the number of elements with class name item
+            itemLengthUsingQuerySelector = document.querySelectorAll(".item").length; // returns the number of elements with class name item
+            console.log(itemLengthUsingQuerySelector); // returns the number of elements with class name item
+
+        div = document.querySelector("div");
+        console.log(div); // returns the first div element in the document
+
+        pElement = document.createElement("p"); // creates a new p element
+        pElement.className = "item"; // sets the class name of the new p element to item
+        pElement.textContent = "Item 3"; // sets the inner HTML of the new p element to New Item
+        div.appendChild(pElement); // appends the new p element to the div element
+
+        console.log(itemLengthUsingClassName);
+        console.log(itemLengthUsingQuerySelector);
+         
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <p class="item">Item 1</p>
+        <p class="item">Item 2</p>
+
+    </div>
+
+    <button onclick="addItem()">Add Item</button>
+    
+</body>
+</html>

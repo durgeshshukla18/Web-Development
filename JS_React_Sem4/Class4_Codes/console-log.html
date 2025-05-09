@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="deleteRecord()">Delete</button>
+    <h1></h1>
+    <p></p>
+
+    <script type="text/javascript">
+        function deleteRecord(){
+            flag = confirm("Are you sure you want to delete this record?");
+            if(flag == true){
+                // document.querySelector("h1").innerHTML = '<h1 style="color:green;">Record Deleted</h1>';
+                document.querySelector("h1").outerHTML = '<h2 style="color:green;">Record Deleted</h2>';
+
+                // document.querySelector("h1").remove(); // This will remove the h1 element from the DOM
+                // document.querySelector("h1").innerHTML = ""; // This will clear the content of the h1 element
+                // document.querySelector("h1").outerHTML = ""; // This will remove the h1 element and its content from the DOM
+            }else{
+                // document.querySelector("p").innerHTML = '<h1 style="color:red;">Record Not Deleted</h1>';
+                document.querySelector("p").outerHTML = '<h2 style="color:red;">Record Not Deleted</h2>';
+            }
+        }
+    </script>
+</body>
+</html>

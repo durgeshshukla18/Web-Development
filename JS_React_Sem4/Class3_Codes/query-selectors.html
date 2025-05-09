@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main" class="box">
+        <p class="box">Hello</p>
+        <p class="box">World</p>
+    </div>
+    <div id="sub" class="box">
+        <p class="box">Apple</p>
+        <p class="box">Samsung</p>
+    </div>
+    
+
+    <script type="text/javascript">
+        element = document.querySelector(".box") // returns first element with class name box inside the element with id main
+        element.style = "border: 1px solid black"; // changes the color of the first element with class name box inside the element with id main
+
+        elements = document.querySelectorAll(".box") // returns all elements with class name box inside the element with id main
+        elements.forEach( (value) => { // iterates through all elements with class name box inside the element with id main
+            value.style.cssText = "color: blue; font-size: 30px; background-color: yellow;" // changes the color of all elements with class name box inside the element with id main
+        });
+
+
+    </script>
+    
+</body>
+</html>

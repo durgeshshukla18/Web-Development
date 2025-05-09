@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World !!</h1>
+    <button onclick="addContent()">Add Content</button>
+
+    <script type="text/javascript">
+        // function addContent() {
+        //     document.write("<h2>This is a new heading</h2>");
+        //     document.write("<p>This is a new paragraph.</p>");
+        // }
+
+
+        // Note: Using document.write() after the document has loaded will overwrite the entire document.
+        // It's generally not recommended to use document.write() in modern web development. 
+        // Instead, consider using DOM manipulation methods like appendChild or innerHTML.
+
+
+        function addContent() {
+            newHeading = document.createElement("h2");
+            newHeading.textContent = "This is a new heading";
+            document.body.appendChild(newHeading);
+
+            newParagraph = document.createElement("p");
+            newParagraph.textContent = "This is a new paragraph.";
+            document.body.appendChild(newParagraph);
+        }
+    </script>
+</body>
+</html>
