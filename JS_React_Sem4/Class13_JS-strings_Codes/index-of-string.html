@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="msg"></p>
+
+    <script type="text/javascript">
+        let str = prompt("Enter your email", 'demoUser@gmail.com');
+
+        let userName = str.substring(0, str.indexOf('@'));
+
+        let domainName = str.substring(str.indexOf('@') + 1);
+
+        let msg = document.getElementById('msg');
+        msg.innerHTML = `Your email is: ${str} <br> Your username is: <b> ${userName} </b> <br> Your domain name is: <b> ${domainName} </b>`;
+        msg.style.color = "orange";
+        msg.style.fontFamily = "Arial";
+    </script>
+</body>
+</html>

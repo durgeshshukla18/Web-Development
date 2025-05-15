@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="disableBtn()">
+    <input type="text" name="" id="userName" placeholder="Enter name" oninput="enableBtn()" />
+    <input type="button" value="Add Name" id="addName" onclick="addName()" />
+    <input type="button" value="Cear List" id="clearList" onclick="clearList()" />
+    <ul class="lstItem" id="lstItem"></ul>
+
+
+    <script type="text/javascript">
+        function addName() {
+            
+            const userName = document.getElementById('userName');
+
+            let item = userName.value.trim();
+            const lstItem = document.getElementById('lstItem');
+            const li = document.createElement('li');
+            li.textContent = item.toUpperCase();
+            lstItem.appendChild(li);
+            userName.value = '';
+            userName.focus();
+
+            document.getElementById('addName').disabled = true;
+            document.getElementById('clearList').disabled = false;
+            
+        }
+
+        function clearList() {
+            const lstItem = document.getElementById('lstItem');
+            const userName = document.getElementById('userName');
+            lstItem.innerHTML = '';
+            userName.value = '';
+            userName.focus();
+
+            // document.getElementById('addName').disabled = true;
+            document.getElementById('clearList').disabled = true;
+        }
+
+        function disableBtn(){
+            document.getElementById('addName').disabled = true;
+            document.getElementById('clearList').disabled = true;
+        }
+
+        function enableBtn(){
+            document.getElementById('addName').disabled = false;
+            // document.getElementById('clearList').disabled = false;
+        }
+
+    </script>
+</body>
+</html>

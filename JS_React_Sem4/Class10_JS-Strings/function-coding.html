@@ -1,0 +1,37 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+function doTask(){
+            let userName = prompt("Enter your name: ");
+            let userAge = prompt("Enter your age: ");
+
+            
+            document.write(`Hello ${userName}, you are ${userAge} years old. , Status :  ${userAge > 18 ? 'Major' : 'Minor'}`); // template string  
+        }
+        function doOneMoreTask(user){
+            return `Hello ${user}`;
+        }
+
+        function printByHighlighting(strings, value){
+            console.log("Call is made...");
+            return `${strings[0]} <b> ${value} </b> ${strings[1]}`; 
+        }
+
+        doTask();
+        document.write('Greeting msg : ${doOneMoreTask("Sachin")}');
+
+        let name = 'JavaScript';
+        document.write(printByHighlighting`Hello ${name} !`); // template string
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

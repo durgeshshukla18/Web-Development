@@ -370,3 +370,134 @@ console.log(str2); // [String: 'dhoni'] { country: 'IND' }
 ```
 ![alt text](image-4.png)
 
+Example 4 :-
+```JS
+let str1 = 'sachin'; // primitive string
+
+let str2 =  new String("sachin"); // object
+
+console.log(str1 == str2); // true
+console.log(str1 === str2); // false
+
+```
+
+### length property :-
+```JS
+let str1 = 'sachin'; // primitive string
+
+let str2 =  new String("sachin"); // object
+
+console.log(str1.length); // 6
+console.log(str2.length); // 6
+```
+
+### working with backticks(` `) :-
+```JS
+function doTask(){
+    let userName = prompt("Enter your name: ");
+    let userAge = prompt("Enter your age: ");
+
+    document.write('Hello ' + userName + ', you are ' + userAge + ' years old.');
+    document.write('<br>');
+    document.write("Hello " + userName + ", you are " + userAge + " years old."); // string concatenation
+    document.write('<br>');
+    document.write(`Hello ${userName}, you are ${userAge} years old.`); // template string/syntax  
+}
+
+```
+
+### Binding :-
+Process of attaching a variable with its value at runtime is referred as Binding.
+
+`Databinding` : Binded the variable with value. <br>
+eg : ${variableName}<br>
+```JS
+var userName = "Sachin";
+document.write(`Hello ${userName}`); // Hello Sachin
+document.write(`Hello ${username}`); 
+```
+
+`styleBinding` : Process of attachng the style related details in 'Inine' manner to an element is referred as style Binding.<br>
+eg : document.getElementById(" ").style.cssAttribute='cssValue';
+eg : document.getElementById(" ").style.cssText='cssKey: cssValue';
+
+`classsBinding` : Process of attaching the class associated with style to an element is referred as class Binding.<br>
+eg : document.getElementById(" ").className='userDefined|library class';
+
+### What is an Event ?
+Anything which happens in the application is referred as an event.
+- onClick => when any element is clicked by user
+- onChange => when value of any element is changed by user
+- onBlur => when any element is lost focus by user
+- onLoad => when any element is loaded by browser
+
+### String formatting methods :-
+1. bold() : returns the string in bold format
+2. italics() : returns the string in italics format
+3. fontsize(number) : returns the string in specified font size
+4. fontcolor(colorName) : returns the string in specified color
+5. toUpperCase() : returns the string in upper case
+
+eg :-
+```JS
+let str = 'Sachin';
+let str1 = str.bold();
+let str2 = str1.toUpperCase();
+let str3 = str2.fontcolor('red');
+document.write(str3);
+
+document.write(str.bold().toUpperCase().fontcolor('red')); // Method Chaining
+```
+
+|Reference Error|Syntax Error | Type Error|
+|---------------|-------------|----------|
+|1. not defined | 1. variable is already declared | 1. assignment to a constant variable |
+|2. undefined | |
+|3. Can not access without declaration| |
+
+### Methods of String Object :-
+1. Length :- returns the length of the string <br>
+```JS
+let str = "Sachin";
+console.log(str.length); // 6
+console.log(str.length()); // 6
+```
+
+<!-----Class Missed----->
+
+### Methods of string object :-
+1. toUpperCase() : returns the string in upper case (String)
+2. startsWith(string) : returns true if the string starts with the specified value (Boolean)
+3. endsWith(string) : returns true if the string ends with the specified value (Boolean)
+4. charAt(number) : returns the character at the specified index (String)
+5. charCodeAt(number) : returns the unicode of the character at the specified index (Number)
+6. indexOf(string) : returns the index of the first occurrence of the specified value (Number)
+7. slice([number], [number]) : returns the characters in a specified range (String)
+
+
+#### split():-
+```JS
+let names = 'Mansi, Natansh, Shaadi';
+let output = names.split(',');
+let outputSec = names.split(',', 2);
+console.log(typeof(output), output); // object [ 'Mansi', ' Natansh', ' Shaadi' ]
+console.log(typeof(output), outputSec); // object [ 'Mansi', ' Natansh' ]
+```
+
+Note:
+
+Corner Cases :-
+1. If the separator is not found, an array containing the original string is returned.
+2. If the separator is an empty string, the string is split into an array of individual characters
+3. If the separator is not a string, it is converted to a string before splitting. If the separator is not found, an empty array is returned.
+4. If the separator is a regular expression, the string is split at each match of the regular expression. If the separator is not found, an array containing the original string is returned.
+
+- "".split() : ['']
+- "".split('') : []
+- 'hello user'.split() : ['hello user']
+- 'hello user'.split(undefined) : ['hello user']
+- 'hello user'.split(null) : ['hello user']
+- 'hello user'.split('',0) : []
+- 'P,W,,'.split() : ['P', 'W', '', '']
+- 'P,W,,'.split(',') : ['P', 'W', '']
+

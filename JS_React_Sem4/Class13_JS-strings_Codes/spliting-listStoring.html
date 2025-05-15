@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        let str = 'apple|banana|orange|grape|kiwi';
+
+        let fruits = str.split('|');
+
+        let ul = document.createElement("ul");
+
+        let output = function(data){
+            let li = document.createElement("li");
+            li.textContent = data.toUpperCase();
+            ul.appendChild(li);
+        }
+
+        fruits.forEach(output);
+
+        document.body.appendChild(ul);
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
