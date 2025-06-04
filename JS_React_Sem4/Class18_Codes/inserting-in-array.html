@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let arr = [1, 2, 3, 4, 5];
+        console.log("Original Array:", arr);
+        // Inserting an element at the beginning
+        arr.unshift(0);
+        console.log("After unshift(0):", arr);
+        // Inserting an element at the end
+        arr.push(6);
+        console.log("After push(6):", arr);
+        // Inserting an element at a specific index
+        arr.splice(3, 0, 2.5); // Insert 2.5 at index 3
+        console.log("After splice(3, 0, 2.5):", arr);
+        // Inserting multiple elements at a specific index
+        arr.splice(2, 0, 1.5, 2.0); // Insert 1.5 and 2.0 at index 2
+        console.log("After splice(2, 0, 1.5, 2.0):", arr);
+
+    </script>
+</body>
+</html>

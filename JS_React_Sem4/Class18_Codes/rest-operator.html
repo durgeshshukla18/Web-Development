@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function myFunction(...args) {
+            console.log(args);
+            const [first, second, ...rest] = args;
+            console.log("First:", first);
+            console.log("Second:", second);
+            console.log("Rest:", rest);
+            console.log("Type of args:", typeof args);
+        }
+
+        myFunction();
+        myFunction(1, 2, 3, 4, 5);
+        myFunction("a", "b", "c", "d", "e");
+        myFunction(1, "b", true, null, undefined, { key: "value" });
+        myFunction(...[1, 2, 3, 4, 5]);
+
+
+    </script>
+    
+</body>
+</html>

@@ -501,3 +501,110 @@ Corner Cases :-
 - 'P,W,,'.split() : ['P', 'W', '', '']
 - 'P,W,,'.split(',') : ['P', 'W', '']
 
+### Note :-
+In JS we can use condition statements on methods|properties| while returns 'object|null' <br>
+This is possible because  by default JS uses the following condition to process the instruction. <br>
+```
+if(someout!=null){
+    // thuthy case
+}else{
+    // falsy case
+}
+```
+
+Eg:-
+```
+let str=''.someMethod(input); // Object|null
+if(str){
+    //process for thrith case
+}else{
+    //process for falsy case
+}
+```
+
+<!-----Break------>
+<!-----Break------>
+<!-----Break------>
+<!-----Break------>
+<!-----Break------>
+
+
+## NonPrimitive type :-
+
+### Array :- 
+1. [Key : Value]<br> key : any type , value : any type <br>
+if key is of number type then it is treated as index, if key is of string type then it is treated as string index (property).
+
+2. 
+
+
+### rest operator :-
+The rest operator is a syntax in JS written as three dots (...) used to collect multiple arguments into an array. It is used in function parameters to accept a variable number of arguments.
+
+|Usage Context|Example|What it does|
+|-------------|-------|------------|
+|Function Params| function fn(...args){}| Collects all arguments into an array called `args` |
+|Array Destructuring| [a, b, ...rest] = [1, 2, 3, 4, 5]| Gathers remaining elements as array|
+|Object Destructuring| {a, b, ...rest} = obj| Gathers remaining properties as object|
+
+Eg:-
+```JS
+function myFunction(...args) {
+            console.log(args);
+            const [first, second, ...rest] = args;
+            console.log("First:", first);
+            console.log("Second:", second);
+            console.log("Rest:", rest);
+            console.log("Type of args:", typeof args);
+        }
+
+        myFunction();
+        myFunction(1, 2, 3, 4, 5);
+        myFunction("a", "b", "c", "d", "e");
+        myFunction(1, "b", true, null, undefined, { key: "value" });
+        myFunction(...[1, 2, 3, 4, 5]);
+```
+
+![alt text](image-5.png)
+
+### Array methods to insert the elements :-
+1. arr.push(...items) :- It adds one or more elements to the end of an array and returns the new length of the array.
+2. arr.unshift(...items) :- It adds one or more elements to the beginning of an array and returns the new length of the array.
+3. arr.splice(start : Number, deleteCount : Number, ...items) :- It adds one or more elements to the array at the specified position and returns the deleted elements. 
+- If deleteCount is 0, no elements are deleted. 
+- If deleteCount is undefined, all elements in the array from the start position to the end of the array are deleted.<br>
+- eg:-
+```JS
+ let arr = [1, 2, 3, 4, 5];
+        console.log("Original Array:", arr);
+        // Inserting an element at the beginning
+        arr.unshift(0);
+        console.log("After unshift(0):", arr);
+        // Inserting an element at the end
+        arr.push(6);
+        console.log("After push(6):", arr);
+        // Inserting an element at a specific index
+        arr.splice(3, 0, 2.5); // Insert 2.5 at index 3
+        console.log("After splice(3, 0, 2.5):", arr);
+        // Inserting multiple elements at a specific index
+        arr.splice(2, 0, 1.5, 2.0); // Insert 1.5 and 2.0 at index 2
+        console.log("After splice(2, 0, 1.5, 2.0):", arr);
+
+```
+![alt text](image-6.png)
+
+4. arr.concat(...items) :- It returns a new array that contains the elements of the original array and the elements of the array(s) passed as arguments. It does not modify the original array. 
+- eg:-
+```JS
+let names = ["Rohit", "Virat", "Dhoni"];
+let teams = ["MI", "RCB", "CSK"];
+
+let combinedData = names.concat(teams);
+console.log("Combined Data:", combinedData);
+```
+![alt text](image-7.png)
+
+
+### Array methods to delete the elements :-
+1. arr.pop() :- It removes the last element from an array and returns the removed element. If the array is empty, it returns undefined. 
+2. arr.shift() :- It removes the first element from an array and returns the removed element. If the array is empty, it returns undefined. 
