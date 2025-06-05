@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let teams = ["MI", "CSK", "RCB", "KKR", "SRH", "DC", "PBKS", "GT", "LSG"];
+        console.log("Original Array:", teams);
+        // Deleting an element from the beginning
+        teams.shift();
+        console.log("After shift():", teams);
+        // Deleting an element from the end
+        teams.pop();
+        console.log("After pop():", teams);
+        // Deleting an element at a specific index
+        teams.splice(2, 1); // Delete the element at index 2
+        console.log("After splice(2, 1):", teams);
+        // Deleting multiple elements at a specific index
+        teams.splice(3, 2); // Delete 2 elements starting from index 3
+        console.log("After splice(3, 2):", teams);
+
+
+   </script>
+</body>
+</html>

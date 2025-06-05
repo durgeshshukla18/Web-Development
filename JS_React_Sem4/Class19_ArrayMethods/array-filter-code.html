@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        // Filter even numbers
+        let evenNumbers = numbers.filter(num => num % 2 === 0);
+        console.log("Even Numbers:", evenNumbers);
+
+        // Filter odd numbers
+        let oddNumbers = numbers.filter(num => num % 2 !== 0);
+        console.log("Odd Numbers:", oddNumbers);
+
+        // Filter numbers greater than 5
+        let greaterThanFive = numbers.filter(num => num > 5);
+        console.log("Numbers Greater Than Five:", greaterThanFive);
+
+
+
+        let users = [
+            { name: "Alice", age: 25 },
+            { name: "Bob", age: 30 },
+            { name: "Charlie", age: 35 },
+            { name: "David", age: 20 }
+        ];
+        // Filter users older than 30
+        let olderUsers = users.filter(user => user.age > 30);
+        console.log("Users Older Than 30:", olderUsers);
+
+        // Filter users whose names start with 'A'
+        let usersStartingWithA = users.filter(user => user.name.startsWith('A'));
+        console.log("Users Starting With 'A':", usersStartingWithA);
+    </script>
+</body>
+</html>

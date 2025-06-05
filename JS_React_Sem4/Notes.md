@@ -607,4 +607,68 @@ console.log("Combined Data:", combinedData);
 
 ### Array methods to delete the elements :-
 1. arr.pop() :- It removes the last element from an array and returns the removed element. If the array is empty, it returns undefined. 
-2. arr.shift() :- It removes the first element from an array and returns the removed element. If the array is empty, it returns undefined. 
+2. arr.shift() :- It removes the first element from an array and returns the removed element. If the array is empty, it returns undefined.
+3. arr.splice(start : Number, deleteCount : Number) :- It removes elements from an array and returns the deleted elements. 
+- If deleteCount is 0, no elements are deleted.
+- If deleteCount is undefined, all elements in the array from the start position to the end of the array are deleted.
+- eg:-
+```JS
+let teams = ["MI", "CSK", "RCB", "KKR", "SRH", "DC", "PBKS", "GT", "LSG"];
+        console.log("Original Array:", teams);
+        // Deleting an element from the beginning
+        teams.shift();
+        console.log("After shift():", teams);
+        // Deleting an element from the end
+        teams.pop();
+        console.log("After pop():", teams);
+        // Deleting an element at a specific index
+        teams.splice(2, 1); // Delete the element at index 2
+        console.log("After splice(2, 1):", teams);
+        // Deleting multiple elements at a specific index
+        teams.splice(3, 2); // Delete 2 elements starting from index 3
+        console.log("After splice(3, 2):", teams);
+```
+![alt text](image-8.png)
+
+### Sorting in array :-
+1. arr.sort() :- It sorts the elements of an array in place and returns the array. The default sort order is according to the string Unicode code points. Therefore, the order of sorting is based on the ASCII value of the characters.
+- If the array contains only one element, it returns the array as it is. 
+- If the array contains more than one element, it sorts the array in ascending order. 
+- If the array contains a mix of numbers and strings, it sorts the numbers in ascending order and the strings in ascending order based on their ASCII values.
+
+
+Array.sort(compareFunction) : []<br>
+arrayName.sort([compareFunction])<br>
+1. Default sorting : string sorting[map with unicode value and performing sorting]
+2. custom sorting<br>
+Rule: 
+- If result of (a - b) < 0, a comes before b
+- If result of (a - b) > 0, a comes after b
+- If result of (a - b) = 0, order of a and b remains same 
+
+
+### filter() :-
+Returns a new array containing elements that passes the test (i.e., returns true) from a callback function.<br>
+Syntax : arr.filter(callback(element, index, array), thisArg)
+- callback : function that each element in the array will be passed to 
+- element : the current element being processed in the array
+- index : the index of the current element being processed in the array
+- array : the array the current element belongs to
+- thisArg : value to use as this when executing callback
+
+#### Rules :-
+1. don't use function keyword while writing the arrow function
+2. if we have only one parameter then don't use () to specify the parameter name
+3. if we have only statements as the function body then don't use {} to define the body
+4. if the function returns a value, then we don't need to use return keyword
+
+### reduce() :-
+Reduces the array to a single value by applying a function to each element in the array and accumulating the result. The function takes four arguments: accumulator, current value, index, and array.<br>
+Syntax : arr.reduce(callback(accumulator, currentValue, index, array), initialValue);
+- callback : function that each element in the array will be passed to
+- accumulator : the accumulated value so far in the reduction
+- currentValue : the current value being processed in the array
+- index : the index of the current element being processed in the array 
+- array : the array the current element belongs to
+- initialValue : the value to use as the initial value of the accumulator, or the first element of the array if no initial value is provided.
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+</head>
+<body>
+    <h1>Array Manipulation</h1>
+    <div class="w-50 mx-auto p-3 border border-2 rounded border-dark bg-light text-dark">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Add City" aria-label="Add City" aria-describedby="button-addon2" id="cityInput">
+            <button onclick="addCity()" class="btn btn-primary" type="button" id="button-addon2">Add City</button>
+        </div>
+
+        <h3>Select City</h3>
+
+        <div>
+            <span onclick="sortUp()" id="sortUp" class="bi bi-sort-alpha-up alert-success"></span>
+            <span onclick="sortDown()" id="sortDown" class="bi bi-sort-alpha-down alert-success"></span>
+        </div>
+
+
+        <select class="form-select" multiple aria-label="Multiple select example" id="cityList">
+            
+        </select>
+
+        <p id="dispNum" class="text-black-50"></p>
+        
+        <div>
+            <button onclick="deleteCity()" class="btn btn-danger">Remove City</button>
+            <button onclick="deleteCities()" class="btn btn-danger">Clear All</button>
+        </div>
+    </div>
+
+
+    <script>
+        let cities = ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata"];
+        let lenCities = cities.length;
+        document.getElementById("dispNum").textContent = `Number of Cities: ${lenCities}`;
+
+        function displayCities() {
+            let select = document.getElementById("cityList");
+            select.innerHTML = ""; // Clear existing options
+            cities.forEach(city => {
+                let option = document.createElement("option");
+                option.value = city;
+                option.textContent = city;
+                select.appendChild(option);
+            });
+
+        }
+
+        displayCities();
+
+        function addCity(){
+            let input = document.getElementById("cityInput");
+            let city = input.value.trim();
+            if(cities.indexOf(city) === -1 && city !== "") {
+                cities.push(city);
+                input.value = ""; // Clear input field
+                console.log(cities);
+                displayCities().innerHTML = ""; // Clear existing options
+                displayCities();
+
+            }else {
+                alert("City already exists or input is empty.");
+                input.value = ""; // Clear input field
+            }
+            
+        }
+
+        function deleteCities(){
+            cities = [];
+            displayCities();
+        }
+
+        function deleteCity() {
+            let select = document.getElementById("cityList");
+            let selectedOptions = Array.from(select.selectedOptions);
+            let indexVal = cities.indexOf(selectedOptions[0].value);
+            cities.splice(indexVal, 1);
+            console.log(cities);
+            displayCities();
+        }
+
+        function sortUp() {
+            cities.sort();
+            displayCities();
+        }
+
+        function sortDown() {
+            cities.sort().reverse();
+            displayCities();
+        }
+
+
+
+
+    </script>
+</body>
+</html>

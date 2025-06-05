@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name: "John Doe",
+            age: 30,
+            email: "john.doe@example.com",
+            companyDetailts: {
+                companyName: "Tech Solutions",
+                position: "Software Engineer",
+                yearsOfExperience: 5
+            },
+            hobbies: ["reading", "gaming", "hiking"]
+        };
+
+        console.log("User Name:", user.name);
+        console.log("User Age:", user.age);
+        console.log("User Email:", user.email);
+        console.log("Company Name:", user.companyDetailts.companyName);
+        console.log("Position:", user.companyDetailts.position);
+        console.log("Years of Experience:", user.companyDetailts.yearsOfExperience);
+        console.log("Hobbies:", user.hobbies.join(", "));
+
+        let weirdUser = {
+            name: "Jane Smith",
+            123 : "number",
+            "email-address": "jane.smith@example.com",
+            "company details": {
+                "company name": "Web Innovations",
+                position: "Frontend Developer",
+                "years of experience": 3
+            },
+            hobbies: ["painting", "cycling", "cooking"]
+        };
+
+        console.log("Weird User Name:", weirdUser.name);
+        console.log("Weird User Email:", weirdUser["email-address"]);
+        console.log("Weird User Company Name:", weirdUser["company details"]["company name"]);
+        console.log("Weird User Position:", weirdUser["company details"].position); 
+        console.log("Weird User Years of Experience:", weirdUser["company details"]["years of experience"]);
+        console.log("Weird User Hobbies:", weirdUser.hobbies.join(", "));
+    </script>
+</body>
+</html>
