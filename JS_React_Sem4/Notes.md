@@ -672,3 +672,4 @@ Syntax : arr.reduce(callback(accumulator, currentValue, index, array), initialVa
 - array : the array the current element belongs to
 - initialValue : the value to use as the initial value of the accumulator, or the first element of the array if no initial value is provided.
 
+### json :-
